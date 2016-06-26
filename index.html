@@ -248,6 +248,121 @@
             
               
                 
+                <a class="post-title-link" href="/2016/06/26/hello-world/" itemprop="url">
+                  Hello World
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-26T17:08:44+08:00" content="2016-06-26">
+              2016-06-26
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/26/hello-world/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/26/hello-world/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/06/26/hello-world/" class="leancloud_visitors" data-flag-title="Hello World">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/26/hello-world/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/06/26/View的事件体系/" itemprop="url">
                   View的事件体系
                 </a>
@@ -307,8 +422,7 @@
 
       
         
-          
-            <ol>
+          <ol>
 <li>View的基础知识：View的位置参数、MotionEvent和TouchSlop对象、VelocityTracker、GestureDetector和Scroller对象？<ul>
 <li>View是一种界面层的控件的一种抽象，它代表了一个控件。</li>
 <li>View的位置信息。<ul>
@@ -330,222 +444,11 @@
 </li>
 </ol>
 <hr>
-<ol>
-<li>View的滑动<ul>
-<li>三种方式：<br>a. 通过View本身提供的scrollTo/scrollBy方法<br>b. 通过动画给View施加平移效果实现滑动<br>c. 通过改变View的LayoutParams使View重新布局实现滑动</li>
-<li>使用scrollTo/scrollBy<ul>
-<li>移动的是View的内容，View本身不移动</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-<p><img src="http://upload-images.jianshu.io/upload_images/1944615-f0459909d2eee53f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="mScrollX和mScrollY的变换规律示意.png"></p>
-<ul>
-<li>使用动画<ul>
-<li>移动的View的影像，View本身位置不发生改变</li>
-<li>Android3.0以下，移动后的View点击事件发生的位置不会改变</li>
-</ul>
-</li>
-<li>改变布局参数</li>
-<li>三种方法的使用对比<ul>
-<li>scrollTo/scrollBy：操作简单，适合对View内容的滑动；</li>
-<li>动画：操作简单，主要适合于没有交互的View和实现复杂的动画效果；</li>
-<li>改变布局参数：操作稍微复杂，适用于有交互的View。</li>
-</ul>
-</li>
-</ul>
-<hr>
-<p>##弹性滑动</p>
-<ul>
-<li>实现方法有<br>a. 使用Scroller<br>b. 通过动画<br>c. 使用延时策略</li>
-</ul>
-<hr>
-<p>##View的事件分发机制</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1944615-f4d8626713e20eb7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>###事件分发的11条结论</p>
-<ol>
-<li><p>同一个事件不能由两个View同时处理，但是通过特殊手段可以做到，</p>
-</li>
-<li><p>某个View一旦开始处理事件，如果它不消耗ACTION_DOWN事件（onTouchEvent返回false也就是disptchOnTouchEvent返回false，那么同一事件都不会再交给它处理，即父容器的onTouchEvent回被调用，</p>
-</li>
-<li><p>在第二点的基础上，比较重要：如果View不消耗除ACTION_DOWN以外的其他事件，那么这个点击事件会消失，此时父元素的onTouchEvent并不会被调用。并且当前View可以持续收到后续的事件，最后这些消失的点击事件会传递给Activity， （是在父View的OnInteceptTouchEent不被从写的情况下，因为父View默认不拦截事件，当前还有一种情况就是设置标志位，控制自View是否需要点击事件。）</p>
-</li>
-<li><p>View的enable属性影响onTouchEvent的默认返回值。哪怕一个View是disable状态的，只要它的clickable或者longClickable有一个为true那么它onTouchEvent返回true，TextView和Button的onTouchEvent的chickable不相同，onTouchEvent方法返回值也就不同，如果setOnclickable方法或者setLongClickable 方法将会让clickable和longclickable自动变为true</p>
-</li>
-<li><p>事件传递过程是由外向内的，即 事件总是先传递给父元素，然后在由父元素分发给子View，通过requestDisallowInterceptTouchEvent方法可以在干预子元素的事件分发过程。但是除了Action_Down以外。</p>
-</li>
-</ol>
-<hr>
-<p>##View的滑动冲突</p>
-<ol>
-<li>滑动冲突的场景有哪些：</li>
-</ol>
-<p><img src="http://upload-images.jianshu.io/upload_images/1944615-8ad39025c94aa5dc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="常见的滑动冲突场景.png"></p>
-<ol>
-<li>场景1出现的情况有哪些，怎么解决？<br>ViewPager和Fragment组合使用，每个页面又是一个ListView的情况下，就会出现滑动冲突，不过ViewPager内部处理了这种冲突。<br>解决的方法有：内部拦截法和外部拦截法。</li>
-<li><p>外部拦截法如何实现？<br><pre><code><br>public boolean onInterceptTouchEvent(MotionEvent event) {</code></pre></p>
-<pre><code>boolean intercepted = false;
-int x = (int) event.getX();
-int y = (int) event.getY();
-
-switch (event.getAction()) {
-</code></pre><p>//父容器一旦返回true，接下来的事件序列就都由父容器处理</p>
-<pre><code>case MotionEvent.ACTION_DOWN: {
-    intercepted = false;
-    if (!mScroller.isFinished()) {
-        mScroller.abortAnimation(); // 优化滑动体验
-        intercepted = true;
-    }
-    break;
-}
-</code></pre><p>//父容器需要当前点击事件就返回true，否则false</p>
-<pre><code>case MotionEvent.ACTION_MOVE: {
-    int deltaX = x - mLastXIntercept;
-    int deltaY = y - mLastYIntercept;
-    intercepted = Math.abs(deltaX) &gt; Math.abs(deltaY);
-    break;
-}
-</code></pre><p>// up事件本身没多大意义，返回false，而且父容器返回false，将导致子容器收不到，无法触发onClick</p>
-<pre><code>case MotionEvent.ACTION_UP: {
-    intercepted = false;
-    break;
-}
-default:
-    break;
-}
-
-Log.d(TAG, &quot;intercepted=&quot; + intercepted);
-mLastX = x;
-mLastY = y;
-mLastXIntercept = x;
-mLastYIntercept = y;
-
-return intercepted;
-</code></pre><p> }<br></p>
-</li>
-<li>内部拦截法如何实现?</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/26/hello-world/" itemprop="url">
-                  Hello World
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-26T10:41:08+08:00" content="2016-06-26">
-              2016-06-26
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/06/26/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/26/hello-world/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/06/26/hello-world/" class="leancloud_visitors" data-flag-title="Hello World">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/26/View的事件体系/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
