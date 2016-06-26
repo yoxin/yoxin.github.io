@@ -1,0 +1,139 @@
+# Hexo Configuration
+## Docs: https://hexo.io/docs/configuration.html
+## Source: https://github.com/hexojs/hexo/
+
+# Site
+title: 郑永欣的个人博客
+subtitle:
+description: 不畏将来 不念过去
+author: 郑永欣
+email: 471893438@qq.com
+language: zh-Hans
+timezone:
+
+# URL
+## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+url: http://yoursite.com
+root: /
+permalink: :year/:month/:day/:title/
+permalink_defaults:
+
+# Directory
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:
+
+# Archives 默认值为2，这里都修改为1，相应页面就只会列出标题，而非全文
+## 2: Enable pagination
+## 1: Disable pagination
+## 0: Fully Disable
+archive: 1
+category: 1
+tag: 1
+
+# Writing
+new_post_name: :title.md # File name of new posts
+default_layout: post
+titlecase: false # Transform title into titlecase
+external_link: true # Open external links in new tab
+filename_case: 0
+render_drafts: false
+post_asset_folder: false
+relative_link: false
+future: true
+highlight:
+  enable: true
+  line_number: true
+  auto_detect: false
+  tab_replace:
+
+# Category & Tag
+default_category: uncategorized
+category_map:
+tag_map:
+
+# Date / Time format
+## Hexo uses Moment.js to parse and display date
+## You can customize the date format as defined in
+## http://momentjs.com/docs/#/displaying/format/
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+
+# Pagination
+## Set per_page to 0 to disable pagination
+per_page: 5
+pagination_dir: page
+
+# Extensions
+## Plugins: https://hexo.io/plugins/
+## Themes: https://hexo.io/themes/
+theme: next
+
+# Deployment
+## Docs: https://hexo.io/docs/deployment.html
+deploy:
+  type: git
+  repo: https://github.com/yoxin/yoxin.github.io
+  branch: master
+
+# =============================================================================
+# NexT Theme configuration
+# =============================================================================
+
+avatar: /uploads/avatar3.png
+
+# Duoshuo
+duoshuo_shortname: yoxin
+# 多说分享服务
+duoshuo_share: true
+# 多说热评文章 true 或者 false
+duoshuo_hotartical: true
+
+# Disqus
+#disqus_shortname: 
+
+# Swiftype Search Key
+#swiftype_key: -TyeD-GzhFmTknXKAuUF
+
+#search:
+#  path: search.xml
+# field: post
+
+# Social links
+social:
+  GitHub: https://github.com/yoxin
+#  Twitter: https://twitter.com/iissnan
+#  Weibo: http://weibo.com/iissnan
+#  DouBan: http://douban.com/people/iissnan
+#  ZhiHu: http://www.zhihu.com/people/iissnan
+
+
+# Creative Commons 4.0 International License.
+# http://creativecommons.org/
+# Available: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | zero
+#creative_commons: by-nc-sa
+
+# Google Webmaster tools verification setting
+# See: https://www.google.com/webmasters/
+#google_site_verification: VvyjvVXcJQa0QklHipu6pwm2PJGnnchIqX7s5JbbT_0
+
+
+# Google Analytics
+# Google分析ID
+#google_analytics:
+
+
+# 百度分析ID
+baidu_analytics: 19323191134e5eefe2d83553db75255d
+
+# Specify the date when the site was setup
+since: 2016
+
+# =============================================================================
+# End NexT Theme configuration
+# =============================================================================

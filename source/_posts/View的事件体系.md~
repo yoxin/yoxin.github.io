@@ -1,0 +1,111 @@
+---
+title: View的事件体系
+date: 2016-06-26 16:44:42
+tags: android
+---
+1. View的基础知识：View的位置参数、MotionEvent和TouchSlop对象、VelocityTracker、GestureDetector和Scroller对象？
+  - View是一种界面层的控件的一种抽象，它代表了一个控件。
+  - View的位置信息。
+    - View的位置由四个顶点决定，分别是top->左上角纵坐标，left-左上角横坐标，right->右下角横坐标，bottom->右下角纵坐标
+    - android3.0起，新加参数x,y：原始坐标，translationX,translationY：当前偏移量，
+    -  x = left + translationX； y = top + translationY
+  - MotionEvent: 触摸事件
+    - ACTION_DOWN; ACTION_MOVE; ACTION_UP
+    - getX/getY返回的是相对于当前View左上角的x和y坐标；getRawX/getRawY返回的是相对于手机屏幕左上角的x和y坐标
+  - TouchSlop：系统能识别的滑动最小距离，通过ViewConfiguration.get(getContext()).getScaledTouchSlop()获得
+  - VelocityTracker：速度追踪，用于追踪手指在滑动过程中的速度。
+  - GestureDetector：手势检测，用于辅助检测用户的单击、滑动、长按、双击等行为。
+  - Scroller：弹性滑动对象。用于实现View的弹性滑动。
+----
+2. View的滑动
+  - 三种方式：
+    a. 通过View本身提供的scrollTo/scrollBy方法
+    b. 通过动画给View施加平移效果实现滑动
+    c. 通过改变View的LayoutParams使View重新布局实现滑动
+  - 使用scrollTo/scrollBy
+    - 移动的是View的内容，View本身不移动
+
+![mScrollX和mScrollY的变换规律示意.png](http://upload-images.jianshu.io/upload_images/1944615-f0459909d2eee53f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+  - 使用动画
+    - 移动的View的影像，View本身位置不发生改变
+    - Android3.0以下，移动后的View点击事件发生的位置不会改变
+  - 改变布局参数
+  - 三种方法的使用对比
+    - scrollTo/scrollBy：操作简单，适合对View内容的滑动；
+    - 动画：操作简单，主要适合于没有交互的View和实现复杂的动画效果；
+    - 改变布局参数：操作稍微复杂，适用于有交互的View。
+---
+##弹性滑动
+  - 实现方法有
+    a. 使用Scroller
+    b. 通过动画
+    c. 使用延时策略
+-----
+##View的事件分发机制
+
+![](http://upload-images.jianshu.io/upload_images/1944615-f4d8626713e20eb7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+###事件分发的11条结论
+1. 同一个事件不能由两个View同时处理，但是通过特殊手段可以做到，
+
+2. 某个View一旦开始处理事件，如果它不消耗ACTION_DOWN事件（onTouchEvent返回false也就是disptchOnTouchEvent返回false，那么同一事件都不会再交给它处理，即父容器的onTouchEvent回被调用，
+
+3. 在第二点的基础上，比较重要：如果View不消耗除ACTION_DOWN以外的其他事件，那么这个点击事件会消失，此时父元素的onTouchEvent并不会被调用。并且当前View可以持续收到后续的事件，最后这些消失的点击事件会传递给Activity， （是在父View的OnInteceptTouchEent不被从写的情况下，因为父View默认不拦截事件，当前还有一种情况就是设置标志位，控制自View是否需要点击事件。）
+
+4. View的enable属性影响onTouchEvent的默认返回值。哪怕一个View是disable状态的，只要它的clickable或者longClickable有一个为true那么它onTouchEvent返回true，TextView和Button的onTouchEvent的chickable不相同，onTouchEvent方法返回值也就不同，如果setOnclickable方法或者setLongClickable 方法将会让clickable和longclickable自动变为true
+
+5. 事件传递过程是由外向内的，即 事件总是先传递给父元素，然后在由父元素分发给子View，通过requestDisallowInterceptTouchEvent方法可以在干预子元素的事件分发过程。但是除了Action_Down以外。
+---
+##View的滑动冲突
+1. 滑动冲突的场景有哪些：
+
+![常见的滑动冲突场景.png](http://upload-images.jianshu.io/upload_images/1944615-8ad39025c94aa5dc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+2. 场景1出现的情况有哪些，怎么解决？
+  ViewPager和Fragment组合使用，每个页面又是一个ListView的情况下，就会出现滑动冲突，不过ViewPager内部处理了这种冲突。
+  解决的方法有：内部拦截法和外部拦截法。
+3. 外部拦截法如何实现？
+<pre><code>
+   public boolean onInterceptTouchEvent(MotionEvent event) {
+        boolean intercepted = false;
+        int x = (int) event.getX();
+        int y = (int) event.getY();
+
+        switch (event.getAction()) {
+  //父容器一旦返回true，接下来的事件序列就都由父容器处理
+        case MotionEvent.ACTION_DOWN: {
+            intercepted = false;
+            if (!mScroller.isFinished()) {
+                mScroller.abortAnimation(); // 优化滑动体验
+                intercepted = true;
+            }
+            break;
+        }
+//父容器需要当前点击事件就返回true，否则false
+        case MotionEvent.ACTION_MOVE: {
+            int deltaX = x - mLastXIntercept;
+            int deltaY = y - mLastYIntercept;
+            intercepted = Math.abs(deltaX) > Math.abs(deltaY);
+            break;
+        }
+// up事件本身没多大意义，返回false，而且父容器返回false，将导致子容器收不到，无法触发onClick
+        case MotionEvent.ACTION_UP: {
+            intercepted = false;
+            break;
+        }
+        default:
+            break;
+        }
+
+        Log.d(TAG, "intercepted=" + intercepted);
+        mLastX = x;
+        mLastY = y;
+        mLastXIntercept = x;
+        mLastYIntercept = y;
+
+        return intercepted;
+    }
+</code>
+3. 内部拦截法如何实现?
+
