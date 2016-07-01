@@ -107,7 +107,7 @@ Activity的生命周期答：onCreate-&amp;gt;onStart-&amp;gt;onResume-&amp;gt;A
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1944615-97050739d9be01dd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1944615-f0a751d7a50bec9c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1944615-75a6a50f39fc3ea2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2016-07-01T01:29:14.872Z">
+<meta property="og:updated_time" content="2016-07-01T01:36:23.008Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android面试题（一）——Activity的生命周期和启动模式">
 <meta name="twitter:description" content="引言
@@ -347,15 +347,11 @@ Activity的生命周期答：onCreate-&amp;gt;onStart-&amp;gt;onResume-&amp;gt;A
 </li>
 </ul>
 </li>
-</ol>
-<ul>
 <li><h3 id="onSaveInstanceState和onRestoreInstanceState调用的过程和时机"><a href="#onSaveInstanceState和onRestoreInstanceState调用的过程和时机" class="headerlink" title="onSaveInstanceState和onRestoreInstanceState调用的过程和时机"></a>onSaveInstanceState和onRestoreInstanceState调用的过程和时机</h3><ul>
 <li><strong>调用时机</strong>：Activity的异常情况下（例如转动屏幕或者被系统回收）的情况下，会调用到onSaveInstanceState和onRestoreInstanceState。其他情况不会触发这个过程。但是按Home键或者启动新Activity仍然会单独触发onSaveInstanceState的调用。</li>
 <li><strong>调用过程</strong>：旧的Activity要被销毁时，由于是<strong>异常情况</strong>下的，所以除了正常调用onPause, onStop, onDestroy方法外，还会在<strong>调用onStop方法前，调用onSaveInstanceState方法</strong>。新的Activity重建时，我们就可以通过onRestoreInstanceState方法取出之前保存的数据并恢复，<strong>onRestoreInstanceState的调用时机在onCreate之后</strong>。<br><img src="http://upload-images.jianshu.io/upload_images/1944615-f0a751d7a50bec9c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Activity的异常情况下的生命周期.png"></li>
 </ul>
 </li>
-</ul>
-<ol>
 <li><h3 id="Activity-A调用Activity-B时，A调用什么函数？"><a href="#Activity-A调用Activity-B时，A调用什么函数？" class="headerlink" title="Activity A调用Activity B时，A调用什么函数？"></a>Activity A调用Activity B时，A调用什么函数？</h3><ul>
 <li>旧的Activity的onPause方法执行结束，才执行新的Activity的onCreat, onState和onResume方法。</li>
 <li>onPause方法中不能有重量级的任务，不然会影响新Activity的创建。</li>
@@ -368,7 +364,7 @@ Activity的生命周期答：onCreate-&amp;gt;onStart-&amp;gt;onResume-&amp;gt;A
 </li>
 <li><h3 id="fragment的生命周期"><a href="#fragment的生命周期" class="headerlink" title="fragment的生命周期"></a>fragment的生命周期</h3><p><img src="http://upload-images.jianshu.io/upload_images/1944615-75a6a50f39fc3ea2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Fragment的生命周期.png"></p>
 </li>
-<li><h3 id="fagement和Activity的通信"><a href="#fagement和Activity的通信" class="headerlink" title="fagement和Activity的通信"></a>fagement和Activity的通信</h3><p>有四种方法</p>
+<li><h3 id="fagement和Activity的通信"><a href="#fagement和Activity的通信" class="headerlink" title="fagement和Activity的通信"></a>fagement和Activity的通信</h3><p>有五种方法</p>
 <ul>
 <li><p>Fragment可以通过getActivity()访问Activity实力，并轻松地执行在Activity布局中查找视图等任务。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">View listView = getActivity().findViewById(R.id.list);</span><br></pre></td></tr></table></figure>
