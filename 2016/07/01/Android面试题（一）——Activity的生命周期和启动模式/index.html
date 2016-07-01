@@ -95,7 +95,7 @@ Activity的生命周期答：onCreate-&amp;gt;onStart-&amp;gt;onResume-&amp;gt;A
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android面试题（一）——Activity的生命周期和启动模式">
 <meta property="og:url" content="http://yoursite.com/2016/07/01/Android面试题（一）——Activity的生命周期和启动模式/index.html">
-<meta property="og:site_name" content="郑永欣的个人博客">
+<meta property="og:site_name" content="YOXIN">
 <meta property="og:description" content="引言
 
 这份面试题系列文章旨在查漏补缺，通过常见的面试题发现自己在Android基础知识上的遗漏和欠缺，验证所学是否扎实。
@@ -107,7 +107,7 @@ Activity的生命周期答：onCreate-&amp;gt;onStart-&amp;gt;onResume-&amp;gt;A
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1944615-97050739d9be01dd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1944615-f0a751d7a50bec9c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1944615-75a6a50f39fc3ea2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2016-07-01T01:22:50.784Z">
+<meta property="og:updated_time" content="2016-07-01T01:29:14.872Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android面试题（一）——Activity的生命周期和启动模式">
 <meta name="twitter:description" content="引言
@@ -141,7 +141,7 @@ Activity的生命周期答：onCreate-&amp;gt;onStart-&amp;gt;onResume-&amp;gt;A
 
   <link rel="canonical" href="http://yoursite.com/2016/07/01/Android面试题（一）——Activity的生命周期和启动模式/"/>
 
-  <title> Android面试题（一）——Activity的生命周期和启动模式 | 郑永欣的个人博客 </title>
+  <title> Android面试题（一）——Activity的生命周期和启动模式 | YOXIN </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -182,11 +182,11 @@ Activity的生命周期答：onCreate-&amp;gt;onStart-&amp;gt;onResume-&amp;gt;A
   <div class="custom-logo-site-title">
     <a href="/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">郑永欣的个人博客</span>
+      <span class="site-title">YOXIN</span>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
-  <p class="site-subtitle"></p>
+  <p class="site-subtitle">郑永欣的个人博客</p>
 </div>
 
 <div class="site-nav-toggle">
@@ -334,9 +334,8 @@ Activity的生命周期答：onCreate-&amp;gt;onStart-&amp;gt;onResume-&amp;gt;A
 </ul>
 <h2 id="面试题："><a href="#面试题：" class="headerlink" title="面试题："></a>面试题：</h2><hr>
 <ol>
-<li><h3 id="Activity的生命周期"><a href="#Activity的生命周期" class="headerlink" title="Activity的生命周期"></a>Activity的生命周期</h3>答：onCreate-&gt;onStart-&gt;onResume-&gt;Activity运行-&gt;新的Activity运行-&gt;onPause-&gt;onStop-&gt;onDestroy-&gt;Activity销毁<br><img src="http://upload-images.jianshu.io/upload_images/1944615-97050739d9be01dd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Activity生命周期的切换过程.png"></li>
-</ol>
-<ul>
+<li><h3 id="Activity的生命周期"><a href="#Activity的生命周期" class="headerlink" title="Activity的生命周期"></a>Activity的生命周期</h3><p>答：onCreate-&gt;onStart-&gt;onResume-&gt;Activity运行-&gt;新的Activity运行-&gt;onPause-&gt;onStop-&gt;onDestroy-&gt;Activity销毁<br><img src="http://upload-images.jianshu.io/upload_images/1944615-97050739d9be01dd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Activity生命周期的切换过程.png"></p>
+</li>
 <li><h3 id="Activity的启动方式"><a href="#Activity的启动方式" class="headerlink" title="Activity的启动方式"></a>Activity的启动方式</h3><p>答：四种启动模式，standard, singleTask, singleTop, singleInstance。 </p>
 <ul>
 <li><strong>standard</strong>：标准模式，在当前的任务栈上创建新的Activity，不论之前有没有创建过该Activity。注意：ApplicationContext无法启动standard模式的Activity。<a id="more"></a></li>
@@ -348,11 +347,15 @@ Activity的生命周期答：onCreate-&amp;gt;onStart-&amp;gt;onResume-&amp;gt;A
 </li>
 </ul>
 </li>
+</ol>
+<ul>
 <li><h3 id="onSaveInstanceState和onRestoreInstanceState调用的过程和时机"><a href="#onSaveInstanceState和onRestoreInstanceState调用的过程和时机" class="headerlink" title="onSaveInstanceState和onRestoreInstanceState调用的过程和时机"></a>onSaveInstanceState和onRestoreInstanceState调用的过程和时机</h3><ul>
 <li><strong>调用时机</strong>：Activity的异常情况下（例如转动屏幕或者被系统回收）的情况下，会调用到onSaveInstanceState和onRestoreInstanceState。其他情况不会触发这个过程。但是按Home键或者启动新Activity仍然会单独触发onSaveInstanceState的调用。</li>
 <li><strong>调用过程</strong>：旧的Activity要被销毁时，由于是<strong>异常情况</strong>下的，所以除了正常调用onPause, onStop, onDestroy方法外，还会在<strong>调用onStop方法前，调用onSaveInstanceState方法</strong>。新的Activity重建时，我们就可以通过onRestoreInstanceState方法取出之前保存的数据并恢复，<strong>onRestoreInstanceState的调用时机在onCreate之后</strong>。<br><img src="http://upload-images.jianshu.io/upload_images/1944615-f0a751d7a50bec9c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Activity的异常情况下的生命周期.png"></li>
 </ul>
 </li>
+</ul>
+<ol>
 <li><h3 id="Activity-A调用Activity-B时，A调用什么函数？"><a href="#Activity-A调用Activity-B时，A调用什么函数？" class="headerlink" title="Activity A调用Activity B时，A调用什么函数？"></a>Activity A调用Activity B时，A调用什么函数？</h3><ul>
 <li>旧的Activity的onPause方法执行结束，才执行新的Activity的onCreat, onState和onResume方法。</li>
 <li>onPause方法中不能有重量级的任务，不然会影响新Activity的创建。</li>
@@ -386,17 +389,15 @@ Activity的生命周期答：onCreate-&amp;gt;onStart-&amp;gt;onResume-&amp;gt;A
 </li>
 </ul>
 </li>
-</ul>
+</ol>
 <h2 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h2><hr>
 <ol>
 <li>Activity典型情况下的生命周期分析</li>
-</ol>
-<ul>
 <li>Activity异常情况下的生命周期分析</li>
 <li>Activity的启动模式</li>
 <li>Fragment的生命周期</li>
 <li>Activity和Fragment的通信方法</li>
-</ul>
+</ol>
 <h2 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h2><hr>
 <p><a href="https://developer.android.com/guide/components/fragments.html" target="_blank" rel="external">fagement官方文档</a><br>《Android开发艺术探究》</p>
 
@@ -425,20 +426,6 @@ Activity的生命周期答：onCreate-&amp;gt;onStart-&amp;gt;onResume-&amp;gt;A
         </div>
       
 
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/06/28/View的事件体系/" rel="next" title="View的事件体系">
-                <i class="fa fa-chevron-left"></i> View的事件体系
-              </a>
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-          </div>
-        </div>
       
 
       
@@ -524,12 +511,12 @@ Activity的生命周期答：onCreate-&amp;gt;onStart-&amp;gt;onResume-&amp;gt;A
                src="/uploads/avatar3.png"
                alt="郑永欣" />
           <p class="site-author-name" itemprop="name">郑永欣</p>
-          <p class="site-description motion-element" itemprop="description">不畏将来 不念过去</p>
+          <p class="site-description motion-element" itemprop="description">永远欣欣向荣的永欣</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">1</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
