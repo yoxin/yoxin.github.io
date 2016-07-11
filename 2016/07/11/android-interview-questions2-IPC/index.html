@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="android," />
 
 
 
@@ -84,15 +84,46 @@
 
 
 
-<meta name="description" content="永远欣欣向荣的永欣">
-<meta property="og:type" content="website">
-<meta property="og:title" content="YOXIN">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="引言
+
+IPC是Inter-Process Communication的缩写，含义是进程间通信和跨进程通信，是指两个进程直接进行数据交换的过程。 
+Binder机制是Android 采用的独特的进程间通信机制。基于OpenBinder框架的一个驱动，用于提供Android平台的进程间通信。
+Messenger、ContentProvider、AIDL底层实现都是Binder。
+
+面试题
+
+Andr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android面试题（二）——IPC机制">
+<meta property="og:url" content="http://yoursite.com/2016/07/11/android-interview-questions2-IPC/index.html">
 <meta property="og:site_name" content="YOXIN">
-<meta property="og:description" content="永远欣欣向荣的永欣">
+<meta property="og:description" content="引言
+
+IPC是Inter-Process Communication的缩写，含义是进程间通信和跨进程通信，是指两个进程直接进行数据交换的过程。 
+Binder机制是Android 采用的独特的进程间通信机制。基于OpenBinder框架的一个驱动，用于提供Android平台的进程间通信。
+Messenger、ContentProvider、AIDL底层实现都是Binder。
+
+面试题
+
+Andr">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1944615-90ad5871e7034239.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1944615-0a546c6de18e3afc.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1944615-3c92d9d160957e78.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1944615-ec958fb44965258d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1944615-7b6a97fd0049a437.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2016-07-11T02:42:54.272Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="YOXIN">
-<meta name="twitter:description" content="永远欣欣向荣的永欣">
+<meta name="twitter:title" content="Android面试题（二）——IPC机制">
+<meta name="twitter:description" content="引言
+
+IPC是Inter-Process Communication的缩写，含义是进程间通信和跨进程通信，是指两个进程直接进行数据交换的过程。 
+Binder机制是Android 采用的独特的进程间通信机制。基于OpenBinder框架的一个驱动，用于提供Android平台的进程间通信。
+Messenger、ContentProvider、AIDL底层实现都是Binder。
+
+面试题
+
+Andr">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1944615-90ad5871e7034239.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -113,9 +144,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/07/11/android-interview-questions2-IPC/"/>
 
-  <title> YOXIN </title>
+  <title> Android面试题（二）——IPC机制 | YOXIN </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -146,9 +177,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -225,9 +254,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -247,10 +276,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/07/11/android-interview-questions2-IPC/" itemprop="url">
-                  Android面试题（二）——IPC机制
-                </a>
+                Android面试题（二）——IPC机制
               
             
           </h1>
@@ -306,9 +332,7 @@
       
 
       
-        
-          
-            <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><hr>
+        <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><hr>
 <ul>
 <li>IPC是Inter-Process Communication的缩写，含义是<strong>进程间通信和跨进程通信</strong>，是指<strong>两个进程直接进行数据交换的过程</strong>。 </li>
 <li><strong>Binder机制是Android 采用的独特的进程间通信机制</strong>。基于OpenBinder框架的一个驱动，用于提供Android平台的进程间通信。</li>
@@ -400,158 +424,95 @@
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><hr>
 <p><a href="http://blog.csdn.net/luoshengyang/article/details/6618363" target="_blank" rel="external">Android进程间通信（IPC）机制Binder简要介绍和学习计划</a><br><a href="http://blog.csdn.net/lmj623565791/article/details/47017485" target="_blank" rel="external">Android 基于Message的进程间通信 Messenger完全解析</a><br><a href="http://baike.baidu.com/link?url=PriROtglDLDAnwUlFMN2i80-FPB_k-4PCHO-dEZCYUaI7bmyFCEgQ_IRKuPA5gUN0zrjJYPcwtYyK6iG29wFpwPWPRg3WvBKZloj_CQlApy" target="_blank" rel="external">远程过程调用协议</a><br><a href="http://ifeve.com/java-copy-on-write/" target="_blank" rel="external">聊聊并发-Java中的Copy-On-Write容器</a><br>《Android开发艺术探索》<br>《Android技术内幕系统卷》<br>《深入理解Android卷1》<br>《Android系统源代码情景分析》</p>
 
-          
+      
+    </div>
+
+    <div>
+      
         
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/01/Android面试题（一）——Activity的生命周期和启动模式/" itemprop="url">
-                  Android面试题（一）——Activity的生命周期和启动模式
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-01T09:04:38+08:00" content="2016-07-01">
-              2016-07-01
-            </time>
-          </span>
-
+        <div class="post-tags">
           
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/01/Android面试题（一）——Activity的生命周期和启动模式/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/01/Android面试题（一）——Activity的生命周期和启动模式/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/07/01/Android面试题（一）——Activity的生命周期和启动模式/" class="leancloud_visitors" data-flag-title="Android面试题（一）——Activity的生命周期和启动模式">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
+            <a href="/tags/android/" rel="tag">#android</a>
           
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><hr>
-<ul>
-<li>这份面试题系列文章旨在查漏补缺，通过常见的面试题发现自己在Android基础知识上的遗漏和欠缺，验证所学是否扎实。</li>
-<li>这是系列的第一章，后面我会根据安卓知识模块分类并网罗分析各种常见面试题。
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/01/Android面试题（一）——Activity的生命周期和启动模式/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/01/Android面试题（一）——Activity的生命周期和启动模式/" rel="next" title="Android面试题（一）——Activity的生命周期和启动模式">
+                <i class="fa fa-chevron-left"></i> Android面试题（一）——Activity的生命周期和启动模式
+              </a>
+            
           </div>
-        
-      
-    </div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/07/11/android-interview-questions2-IPC/"
+     data-title="Android面试题（二）——IPC机制"
+     data-content=""
+     data-url="http://yoursite.com/2016/07/11/android-interview-questions2-IPC/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
 
 
           </div>
           
 
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/07/11/android-interview-questions2-IPC/"
+           data-title="Android面试题（二）——IPC机制" data-url="http://yoursite.com/2016/07/11/android-interview-questions2-IPC/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -571,8 +532,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar3.png"
@@ -626,6 +596,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面试题"><span class="nav-number">2.</span> <span class="nav-text">面试题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Android-IPC有哪些方式？优缺点和适用场景？"><span class="nav-number">2.1.</span> <span class="nav-text">Android IPC有哪些方式？优缺点和适用场景？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Binder的系统架构"><span class="nav-number">2.2.</span> <span class="nav-text">Binder的系统架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Binder的工作流程"><span class="nav-number">2.3.</span> <span class="nav-text">Binder的工作流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现一个Messenger的步骤"><span class="nav-number">2.4.</span> <span class="nav-text">实现一个Messenger的步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AIDL的工作流程"><span class="nav-number">2.5.</span> <span class="nav-text">AIDL的工作流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AIDL的使用方法"><span class="nav-number">2.6.</span> <span class="nav-text">AIDL的使用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Intent传递数据时，下列的数据类型不可以被传递的是（）"><span class="nav-number">2.7.</span> <span class="nav-text">Intent传递数据时，下列的数据类型不可以被传递的是（）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#知识点："><span class="nav-number">3.</span> <span class="nav-text">知识点：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#推荐"><span class="nav-number">4.</span> <span class="nav-text">推荐</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">5.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -722,6 +703,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
