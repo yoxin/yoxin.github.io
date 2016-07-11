@@ -307,100 +307,16 @@
 
       
         
-          
-            <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><hr>
+          <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><hr>
 <ul>
 <li>IPC是Inter-Process Communication的缩写，含义是<strong>进程间通信和跨进程通信</strong>，是指<strong>两个进程直接进行数据交换的过程</strong>。 </li>
 <li><strong>Binder机制是Android 采用的独特的进程间通信机制</strong>。基于OpenBinder框架的一个驱动，用于提供Android平台的进程间通信。</li>
-<li><strong>Messenger</strong>、<strong>ContentProvider</strong>、<strong>AIDL</strong>底层实现都是<strong>Binder</strong>。</li>
-</ul>
-<h2 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h2><hr>
-<ol>
-<li><h3 id="Android-IPC有哪些方式？优缺点和适用场景？"><a href="#Android-IPC有哪些方式？优缺点和适用场景？" class="headerlink" title="Android IPC有哪些方式？优缺点和适用场景？"></a>Android IPC有哪些方式？优缺点和适用场景？</h3><ul>
-<li><strong>Bundle</strong>：在Bundle中附加数据并通过Intent传输</li>
-<li><strong>文件共享</strong>：两个进程通过读写一个文件来交换数据</li>
-<li><strong>AIDL</strong>：Android Interface Definition Language</li>
-<li><strong>Messenger</strong>：基于消息的进程间通信</li>
-<li><strong>ContentProvider</strong>：：专门用于不同应用间的数据共享</li>
-<li><strong>Socket</strong>：使用TCP和UDP协议进行网络通信<br><img src="http://upload-images.jianshu.io/upload_images/1944615-90ad5871e7034239.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="IPC方式的优缺点和适用场景"><br><strong>注：RPC——远程过程调用</strong></li>
-</ul>
-</li>
-<li><h3 id="Binder的系统架构"><a href="#Binder的系统架构" class="headerlink" title="Binder的系统架构"></a>Binder的系统架构</h3><ul>
-<li><strong>Service Manager</strong><br>Service Manager主要负责Android系统中所有的服务，当客户端要与服务端进行通信时，首先就会通过Service Manager来查询和取得所需要交互的服务。当然，每个服务也都需要向Service Manager注册自己提供的服务，以便能够供服务端进行查询和获取。</li>
-<li><strong>服务（Service）</strong><br>这里的服务即上面所说的服务端，通常也是Android的系统服务，通过Service Manager可以查询和获取某个Server。</li>
-<li><strong>客户端</strong><br>这里的客户端一般是指Android系统上面的应用服务。它可以请求Service中的服务，比如Activity。</li>
-<li><strong>服务代理</strong><br>服务代理是指在客户端应用程序中生成的Server代理（proxy）。从应用程序的角度来看，服务代理和本地对象没有差别，都可以调用其方法，方法都是同步的，并且返回相应的结果。服务代理也是Binder机制的核心模块。</li>
-<li><strong>Binder驱动</strong><br>用于实现Binder的设备驱动，主要负责组织Binder的服务节点，调用Binder相关的处理线程，完成实际的Binder传输等，他位于Binder结构的最底层（即Linux内核层）。<br>它们之间的结构关系如下：<br><img src="http://upload-images.jianshu.io/upload_images/1944615-0a546c6de18e3afc.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Android系统Binder机制中的四个组件Client、Server、Service Manager和Binder驱动程序的关系"><ol>
-<li>Client、Server和Service Manager实现在用户空间中，Binder驱动程序实现在内核空间中</li>
-<li>Binder驱动程序和Service Manager在Android平台中已经实现，开发者只需要在用户空间实现自己的Client和Server</li>
-<li>Binder驱动程序提供设备文件/dev/binder与用户空间交互，Client、Server和Service Manager通过open和ioctl文件操作函数与Binder驱动程序进行通信</li>
-<li>Client和Server之间的进程间通信通过Binder驱动程序间接实现</li>
-<li>Service Manager是一个守护进程，用来管理Server，并向Client提供查询Server接口的能力</li>
-</ol>
-</li>
-</ul>
-</li>
-<li><h3 id="Binder的工作流程"><a href="#Binder的工作流程" class="headerlink" title="Binder的工作流程"></a>Binder的工作流程</h3><ol>
-<li>客户端首先获取服务器端的代理对象。所谓的代理对象实际上就是在客户端建立一个服务端的“引用”，该代理对象具有服务端的功能，使其在客户端访问服务端的方法就像访问本地方法一样。</li>
-<li>客户端通过调用服务器代理对象的方式向服务器端发送请求。</li>
-<li>代理对象将用户请求通过Binder驱动发送到服务器进程。</li>
-<li>服务器进程处理用户请求，并通过Binder驱动返回处理结果给客户端的服务器代理对象。</li>
-<li>客户端收到服务端的返回结果。<br><img src="http://upload-images.jianshu.io/upload_images/1944615-3c92d9d160957e78.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Binder的工作机制.png"></li>
-</ol>
-</li>
-<li><h3 id="实现一个Messenger的步骤"><a href="#实现一个Messenger的步骤" class="headerlink" title="实现一个Messenger的步骤"></a>实现一个Messenger的步骤</h3><p>答：基于消息的进程间通信方式：<br><img src="http://upload-images.jianshu.io/upload_images/1944615-ec958fb44965258d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Messanger通信.png"></p>
-<ul>
-<li>服务端进程<br>需要在服务端创建一个Service来处理客户端的连接请求，同时创建一个Handler并通过它来创建一个Messenger对象，然后在Service的onBind中返回这个Messenger对象底层的Binder即可。</li>
-<li>客户端进程<br>客户端进程中，首先绑定服务端的Service，绑定成功后用服务端返回的IBinder对象创建一个Messenger，通过这个Messenger就可以向服务端发送消息，发送消息的类型为Message对象。如果需要服务端能够回应客户端，就和服务端一样，我们还需要创建一个Handler并创建一个新的Messenger，并把这个Messenger对象通过Message的replyTo参数传递给服务端，服务端通过这个replyTo参数就可以回应客户端。<br><img src="http://upload-images.jianshu.io/upload_images/1944615-7b6a97fd0049a437.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Messenger的工作原理.png"></li>
-</ul>
-</li>
-<li><h3 id="AIDL的工作流程"><a href="#AIDL的工作流程" class="headerlink" title="AIDL的工作流程"></a>AIDL的工作流程</h3><p>答：AIDL文件的本质是系统为我们提供的一种快速实现Binder的工具而已，所以AIDL的工作流程可以绕到Binder进行说明。（结合第一和第二问进行回答）</p>
-</li>
-<li><h3 id="AIDL的使用方法"><a href="#AIDL的使用方法" class="headerlink" title="AIDL的使用方法"></a>AIDL的使用方法</h3><ul>
-<li><strong>服务端</strong><br>服务端首先要创建一个远程Service用来监听客户端的连接请求，然后创建一个AIDL文件，将暴露给客户端的接口在这个AIDL文件中声明，最后在Service中实现这个AIDL接口即可。</li>
-<li><strong>客户端</strong><br>首先绑定服务端的Service，绑定成功后，将服务端返回的Binder对象转化成AIDL接口所属的类型，接着就可以调用AIDL中的方法了。</li>
-<li><strong>AIDL文件支持的数据类型</strong><ul>
-<li>基本数据类型；</li>
-<li>String和CharSequence；</li>
-<li>List：只支持ArrayList，里面每个元素都必须被AIDL支持；</li>
-<li>Map：只支持HashMap，里面每个元素都必须被AIDL支持，包括key和value；</li>
-<li>Parcelable：所有实现了Parcelable接口的对象；</li>
-<li>AIDL：所有AIDL接口本身都可以在AIDL文件中使用。</li>
-</ul>
-</li>
-<li>Parcelable和AIDL对象无论是否和当前AIDL文件位于同一个包内，都要显式import进来。</li>
-<li>服务端实现需要注意并发处理，可以借助Copy-On-Write容器</li>
-<li>服务端实现监听时，监听存储容器使用RemoteCallbackList，系统专门提供用来删除跨进程listener的接口</li>
-<li>AIDL的包结构在服务端和客户端要保持一致，否则出错，因为客户端要反序列化服务端中和AIDL接口相关的所有类，如果类的完整路径不一样的话，就无法成功反序列化。</li>
-<li>AIDL调用服务端方法后，会挂起等待，如果服务端进行执行大量耗时操作，会导致客户端ANR。解决方法：客户端调用放在非UI线程即可。</li>
-</ul>
-</li>
-<li><h3 id="Intent传递数据时，下列的数据类型不可以被传递的是（）"><a href="#Intent传递数据时，下列的数据类型不可以被传递的是（）" class="headerlink" title="Intent传递数据时，下列的数据类型不可以被传递的是（）"></a>Intent传递数据时，下列的数据类型不可以被传递的是（）</h3><p>A. Serializable<br>B. File<br>C. Parcelable<br>D. Thread</p>
-<ul>
-<li>答案：D</li>
-<li>解释：Intent传递Bundle数据，<strong>Bundle支持的数据类型有四种</strong>：<ol>
-<li>8种基本数据类型及其数组</li>
-<li>String（String实现了Serializable）/CharSequence实例类型的数据及其数组</li>
-<li>实现了Parcelable的对象及其数组  (自己来做, 操作较复杂, 但速度快)</li>
-<li>实现了   Serializable   的对象及其数组(系统来做, 操作简单, 但速度慢) </li>
-</ol>
-</li>
-</ul>
-</li>
-</ol>
-<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><hr>
-<ol>
-<li>Android IPC方式</li>
-<li>Binder机制的原理</li>
-<li>Messenger和AIDL的使用和工作原理</li>
-</ol>
-<h2 id="推荐"><a href="#推荐" class="headerlink" title="推荐"></a>推荐</h2><hr>
-<p><a href="yoxin.github.io">我的个人博客</a><br><a href="http://www.jianshu.com/p/e279b3137157" target="_blank" rel="external">Android面试题（一）——Activity的生命周期和启动模式
-</a></p>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><hr>
-<p><a href="http://blog.csdn.net/luoshengyang/article/details/6618363" target="_blank" rel="external">Android进程间通信（IPC）机制Binder简要介绍和学习计划</a><br><a href="http://blog.csdn.net/lmj623565791/article/details/47017485" target="_blank" rel="external">Android 基于Message的进程间通信 Messenger完全解析</a><br><a href="http://baike.baidu.com/link?url=PriROtglDLDAnwUlFMN2i80-FPB_k-4PCHO-dEZCYUaI7bmyFCEgQ_IRKuPA5gUN0zrjJYPcwtYyK6iG29wFpwPWPRg3WvBKZloj_CQlApy" target="_blank" rel="external">远程过程调用协议</a><br><a href="http://ifeve.com/java-copy-on-write/" target="_blank" rel="external">聊聊并发-Java中的Copy-On-Write容器</a><br>《Android开发艺术探索》<br>《Android技术内幕系统卷》<br>《深入理解Android卷1》<br>《Android系统源代码情景分析》</p>
-
-          
+<li><strong>Messenger</strong>、<strong>ContentProvider</strong>、<strong>AIDL</strong>底层实现都是<strong>Binder</strong>。
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/07/11/android-interview-questions2-IPC/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
