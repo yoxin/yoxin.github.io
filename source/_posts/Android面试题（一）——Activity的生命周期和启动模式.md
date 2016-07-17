@@ -52,7 +52,7 @@ ExampleFragment fragment = (ExampleFragment) getFragmentManager().findFragmentBy
 ```
 
     - 创建对Activity的事件回调
-      - 在fragment中定义一个回调接口，并要求宿主Activity实现它。当Activity通过该接口受到回调时，可以根据需要与布局中的其他片段共享这些信息。
+      - 在fragment中定义一个回调接口，并要求宿主Activity实现它。当Activity通过该接口收到回调时，可以根据需要与布局中的其他片段共享这些信息。
       - 代码示例：
 ```
     public static class FragmentA extends ListFragment {
