@@ -95,7 +95,7 @@ View在Android的地位堪比四大组件，Android为我们提供了很多的�
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1944615-f0459909d2eee53f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1944615-33ea92d34ecac092.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1944615-d2ee1f7debd381be.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2016-07-18T02:27:17.168Z">
+<meta property="og:updated_time" content="2016-07-19T01:05:07.722Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android面试题（三）——View的事件体系和工作原理">
 <meta name="twitter:description" content="引言
@@ -350,7 +350,7 @@ View在Android的地位堪比四大组件，Android为我们提供了很多的�
 <li>如果View不消耗除ACTION_DOWN以外的事件，那么这个点击事件会消失，此时父元素的onTouchEvent并不会调用，并且当前View可以持续收到后续的事件，最终这些消失的事件会传递到Activity。</li>
 <li>ViewGroup默认不拦截任何事件。Android源码中ViewGroup的onInterceptTouchEvent方法默认返回false。</li>
 <li>View没有onIntercepteTouchEvent方法，一旦有点击事件传递给它，那么它的onTouchEvent方法就会被调用。</li>
-<li>View的onTouchEvent默认都会消耗事件（返回true），除非它是不可点击的（clickable和longClickable同时为false）。View的longClickable默认都为false，clickable要分情况看，比如Button默认为true，TextView默认为false。</li>
+<li>View的onTouchEvent默认都不会消耗事件（返回false），除非它是可点击的（clickable和longClickable有一个为true）。View的longClickable默认都为false，clickable要分情况看，比如Button默认为true，TextView默认为false。</li>
 <li>View的enable属性不影响onTouchEvent的默认返回值。哪怕一个View是disable状态，只要它的clickable或者longClickable有一个为true，那么它的onTouchEvent就返回true。</li>
 <li>onClick会发生的前提是当前View是可点击的，并且它受到down和up的事件。</li>
 <li>事件传递是由外向内的，即事件总是先传递给父元素，然后再由父元素分发给子View，通过requestDisallowInterceptTouchEvent方法就可以在子元素中干扰父元素的事件分发过程，但ACTION_DOWN事件除外。</li>
