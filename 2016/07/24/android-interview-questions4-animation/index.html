@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="android," />
 
 
 
@@ -84,15 +84,16 @@
 
 
 
-<meta name="description" content="永远欣欣向荣的永欣">
-<meta property="og:type" content="website">
-<meta property="og:title" content="YOXIN">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="引言Android动画可以帮助我们实现一些炫酷的效果，掌握动画主要在于练习。在面试中更多地根据实际需求回答。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android面试题（四）——动画">
+<meta property="og:url" content="http://yoursite.com/2016/07/24/android-interview-questions4-animation/index.html">
 <meta property="og:site_name" content="YOXIN">
-<meta property="og:description" content="永远欣欣向荣的永欣">
+<meta property="og:description" content="引言Android动画可以帮助我们实现一些炫酷的效果，掌握动画主要在于练习。在面试中更多地根据实际需求回答。">
+<meta property="og:updated_time" content="2016-07-24T02:30:42.110Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="YOXIN">
-<meta name="twitter:description" content="永远欣欣向荣的永欣">
+<meta name="twitter:title" content="Android面试题（四）——动画">
+<meta name="twitter:description" content="引言Android动画可以帮助我们实现一些炫酷的效果，掌握动画主要在于练习。在面试中更多地根据实际需求回答。">
 
 
 
@@ -113,9 +114,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/07/24/android-interview-questions4-animation/"/>
 
-  <title> YOXIN </title>
+  <title> Android面试题（四）——动画 | YOXIN </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -146,9 +147,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -225,9 +224,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -247,10 +246,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/07/24/android-interview-questions4-animation/" itemprop="url">
-                  Android面试题（四）——动画
-                </a>
+                Android面试题（四）——动画
               
             
           </h1>
@@ -306,393 +302,120 @@
       
 
       
-        
-          <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>Android动画可以帮助我们实现一些炫酷的效果，掌握动画主要在于练习。在面试中更多地根据实际需求回答。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/24/android-interview-questions4-animation/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+        <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>Android动画可以帮助我们实现一些炫酷的效果，掌握动画主要在于练习。在面试中更多地根据实际需求回答。<br><a id="more"></a></p>
+<h2 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h2><ol>
+<li><h3 id="下面哪一项不属于android的动画类型？"><a href="#下面哪一项不属于android的动画类型？" class="headerlink" title="下面哪一项不属于android的动画类型？"></a>下面哪一项不属于android的动画类型？</h3><p><strong>A</strong> Tween<br><strong>B</strong> Alpha<br><strong>C</strong> Frame<br><strong>D</strong> Animation<br>正确答案：<strong>D</strong><br>解析：Android动画有三种：View动画、帧动画、属性动画<br>Tween（补间动画），即View动画，包括了平移(Translate)、缩放(Scale)、旋转(Rotate)、透明度(Alpha)，所以A、B正确。<br>Frame（帧动画）循序播放一组预先定义好的图片，所以C正确<br>属性动画（Property Animation）类名是：ValueAnimator、ObjectAnimator</p>
+</li>
+<li><p>下面属于android的动画分类的有?(android3.0之前)<br><strong>A</strong> Tween<br><strong>B</strong> Frame<br><strong>C</strong> Draw<br><strong>D</strong> Animation<br>正确答案：AB<br>解析：两种，一种是Tween 动画、还有一种是 Frame 动画。 Tween 动画，这种实现方式可以使视图组件移动、放大、缩小以及产生透明度的变化 ; 另一种 Frame 动画，传统的动画方法，通过顺序的播放排列好的图片来实现，类似电影。属性动画是android3.0之后才有的。</p>
+</li>
+<li><h3 id="动画占用大量内存，如何优化？"><a href="#动画占用大量内存，如何优化？" class="headerlink" title="动画占用大量内存，如何优化？"></a>动画占用大量内存，如何优化？</h3><ul>
+<li><strong>OOM问题</strong>：这个问题主要出现在帧动画中，当图片数量较多且图片较大时就极易出现OOM，这个在实际开发中要尤其注意，尽量避免使用帧动画。</li>
+<li><strong>内存泄露</strong>：在属性动画中有一类无限循环的动画，这类动画需要在Activity退出时及时停止，否则将导致Activity无法释放从而造成内存泄露，通过验证后发现View动画并不存在此问题。</li>
+</ul>
+</li>
+<li><h3 id="使用动画的注意事项"><a href="#使用动画的注意事项" class="headerlink" title="使用动画的注意事项"></a>使用动画的注意事项</h3><ol>
+<li><strong>OOM问题</strong>：这个问题主要出现在帧动画中，当图片数量较多且图片较大时就极易出现OOM，这个在实际开发中要尤其注意，尽量避免使用帧动画。</li>
+<li><strong>内存泄露</strong>：在属性动画中有一类无限循环的动画，这类动画需要在Activity退出时及时停止，否则将导致Activity无法释放从而造成内存泄露，通过验证后发现View动画并不存在此问题。</li>
+<li><strong>兼容性问题</strong>：动画在3.0以下的系统有兼容性问题，在某些特殊场景可能无法正常工作，因此要做好适配工作。</li>
+<li><strong>View动画的问题</strong>：View动画是对View的影像做动画，并不是真正改变View的状态，因此有时候会出现动画完成后View无法隐藏的现象，即setVisibility(View.GOEN)失效了，这个时候只要调用view.clearAnimation()清除View动画即可解决问题。</li>
+<li><strong>不要使用px</strong>：在进行动画的过程中，要尽量使用dp，使用px会导致在不用的设备上有不用的效果。</li>
+<li><strong>动画元素的交互</strong>：从3.0开始，将view移动（平移）后，属性动画的单击事件触发位置为移动后的位置，但是View动画仍然在原位置。在Android3.0以前的系统中，不管是View动画还是属性动画，新位置都无法触发单击事件同时，老位置仍然能触发单击事件（因为属性动画在Android3.0以前是没有的，是通过兼容包实现的，底层也是调用View动画）。</li>
+<li><strong>硬件加速</strong>：使用动画的过程中，建议开启硬件加速，这样会提高动画的流畅性。<br>开启方法：<br>在你的Android manifest文件，添加<code>hardwareAccelerated</code>属性就可以了。可以给整个application设置，也可以单独给一个acitivty设置，该属性默认值为false;<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;application android:hardwareAccelerated=&quot;true&quot;&gt;    </span><br><span class="line">            &lt;activity ... /&gt;    </span><br><span class="line">            &lt;activity android:hardwareAccelerated=&quot;true&quot; /&gt;</span><br><span class="line">            &lt;activity android:hardwareAccelerated=&quot;false&quot; /&gt;</span><br><span class="line">&lt;/application&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="推荐"><a href="#推荐" class="headerlink" title="推荐"></a>推荐</h2><p><a href="http://yoxin.github.io" target="_blank" rel="external">我的个人博客</a></p>
+
+      
+    </div>
+
+    <div>
+      
         
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/17/android-interview-questions3-view/" itemprop="url">
-                  Android面试题（三）——View的事件体系和工作原理
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-17T14:36:33+08:00" content="2016-07-17">
-              2016-07-17
-            </time>
-          </span>
-
+        <div class="post-tags">
           
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/17/android-interview-questions3-view/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/17/android-interview-questions3-view/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/07/17/android-interview-questions3-view/" class="leancloud_visitors" data-flag-title="Android面试题（三）——View的事件体系和工作原理">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
+            <a href="/tags/android/" rel="tag">#android</a>
           
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><hr>
-<p>View在Android的地位堪比四大组件，Android为我们提供了很多的系统控件。但是为了区别一般性，我们往往需要自定义View，这就要求我们对View的事件体系和工作原理有深入的理解，只有这样才能做出完美的自定义控件<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/17/android-interview-questions3-view/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/17/android-interview-questions3-view/" rel="next" title="Android面试题（三）——View的事件体系和工作原理">
+                <i class="fa fa-chevron-left"></i> Android面试题（三）——View的事件体系和工作原理
+              </a>
+            
           </div>
-        
-      
-    </div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+          <div class="post-nav-prev post-nav-item">
             
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/11/android-interview-questions2-IPC/" itemprop="url">
-                  Android面试题（二）——IPC机制
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-11T10:41:56+08:00" content="2016-07-11">
-              2016-07-11
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/11/android-interview-questions2-IPC/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/11/android-interview-questions2-IPC/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/07/11/android-interview-questions2-IPC/" class="leancloud_visitors" data-flag-title="Android面试题（二）——IPC机制">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><hr>
-<ul>
-<li>IPC是Inter-Process Communication的缩写，含义是<strong>进程间通信和跨进程通信</strong>，是指<strong>两个进程直接进行数据交换的过程</strong>。 </li>
-<li><strong>Binder机制是Android 采用的独特的进程间通信机制</strong>。基于OpenBinder框架的一个驱动，用于提供Android平台的进程间通信。</li>
-<li><strong>Messenger</strong>、<strong>ContentProvider</strong>、<strong>AIDL</strong>底层实现都是<strong>Binder</strong>。
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/11/android-interview-questions2-IPC/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
+
+    <div class="post-spread">
       
+        <div class="ds-share flat" data-thread-key="2016/07/24/android-interview-questions4-animation/"
+     data-title="Android面试题（四）——动画"
+     data-content=""
+     data-url="http://yoursite.com/2016/07/24/android-interview-questions4-animation/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
 
-  
-  
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
 
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/01/Android面试题（一）——Activity的生命周期和启动模式/" itemprop="url">
-                  Android面试题（一）——Activity的生命周期和启动模式
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-01T09:04:38+08:00" content="2016-07-01">
-              2016-07-01
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/01/Android面试题（一）——Activity的生命周期和启动模式/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/01/Android面试题（一）——Activity的生命周期和启动模式/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/07/01/Android面试题（一）——Activity的生命周期和启动模式/" class="leancloud_visitors" data-flag-title="Android面试题（一）——Activity的生命周期和启动模式">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><hr>
-<ul>
-<li>这份面试题系列文章旨在查漏补缺，通过常见的面试题发现自己在Android基础知识上的遗漏和欠缺，验证所学是否扎实。</li>
-<li>这是系列的第一章，后面我会根据安卓知识模块分类并网罗分析各种常见面试题。
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/01/Android面试题（一）——Activity的生命周期和启动模式/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
       
     </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
           
 
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/07/24/android-interview-questions4-animation/"
+           data-title="Android面试题（四）——动画" data-url="http://yoursite.com/2016/07/24/android-interview-questions4-animation/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -712,8 +435,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar3.png"
@@ -767,6 +499,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面试题"><span class="nav-number">2.</span> <span class="nav-text">面试题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下面哪一项不属于android的动画类型？"><span class="nav-number">2.1.</span> <span class="nav-text">下面哪一项不属于android的动画类型？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动画占用大量内存，如何优化？"><span class="nav-number">2.2.</span> <span class="nav-text">动画占用大量内存，如何优化？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用动画的注意事项"><span class="nav-number">2.3.</span> <span class="nav-text">使用动画的注意事项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#推荐"><span class="nav-number">3.</span> <span class="nav-text">推荐</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -863,6 +606,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
